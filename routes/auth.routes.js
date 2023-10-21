@@ -6,6 +6,14 @@ const auth = require("../middlewares/jwt")
 const httpStatus = require('http-status');
 const ApiError = require('../utils/ApiError');
 
+router.get("/ping", async (req, res, next) => {
+  res.status(200).json("Hello");
+});
+
+router.get("/", async (req, res, next) => {
+  res.status(200).json("Hello");
+});
+
 router.post("/login", async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
